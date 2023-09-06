@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const {
   NODE_ENV,
   ALLOWED_ORIGIN,
@@ -6,7 +8,8 @@ const {
   DB_NAME,
   DB_PORT,
   DB_HOST,
-  APP_PORT
+  APP_PORT,
+  JWT_SECRET
 } = process.env;
 
 module.exports = {
@@ -17,5 +20,6 @@ module.exports = {
   DB_NAME,
   DB_PORT,
   DB_HOST,
-  APP_PORT
+  APP_PORT,
+  JWT_SECRET
 };

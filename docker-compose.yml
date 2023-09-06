@@ -5,10 +5,10 @@ services:
     image: mongo:latest
     restart: always
     environment:
-      - MONGO_INITDB_ROOT_USERNAME: rootuser
-      - MONGO_INITDB_ROOT_PASSWORD: rootpassword
+      MONGO_INITDB_ROOT_USERNAME: rootuser
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
     ports:
-      -27017:27017
+      - 27017:27017
     volumes:
       - mongodb_data:/data/db
 
@@ -18,18 +18,18 @@ services:
     ports:
       - 6379:6379
 
-  url-shortener:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: url-shortener
-    volumes:
-      - ./:/app
-    depends_on:
-      - "mongo_db"
-      - "redis"
-    ports:
-      -5000:5000
+  # url-shortener:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: url-shortener
+  #   volumes:
+  #     - ./:/app
+  #   depends_on:
+  #     - "mongo_db"
+  #     - "redis"
+  #   ports:
+  #     - 5000:5000
 
 volumes:
-  mongodb_data
+  mongodb_data:
