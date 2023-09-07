@@ -10,10 +10,10 @@ const apiRateLimit = require("./config/rateLimiter");
 
 require("./config/db");
 
-const authRoutes = require("./routes/auth.routes");
-const userRoutes = require("./routes/user.routes");
-const permissionRoutes = require("./routes/permission.routes");
-const roleRoutes = require("./routes/role.routes");
+const authRoutes = require("./routes/auth/auth.routes");
+const userRoutes = require("./routes/user/user.routes");
+const permissionRoutes = require("./routes/permission/permission.routes");
+const roleRoutes = require("./routes/role/role.routes");
 
 const errorHandler = require("./middlewares/errorHandler");
 

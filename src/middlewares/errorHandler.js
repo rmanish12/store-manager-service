@@ -31,7 +31,7 @@ const errorHandler = (err, req, res, next) => {
   const statusCode = err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR;
   const status = err.status || ReasonPhrases.INTERNAL_SERVER_ERROR;
 
-  res.status(status).send({
+  res.status(statusCode).send({
     statusCode,
     status,
     errors

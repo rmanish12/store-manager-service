@@ -19,7 +19,7 @@ const authenticateUser = async (req, res, next) => {
     if (!userDetails.isActive) {
       throw new ForbiddenError("Your account is not active");
     }
-    req.user = { ...userDetails };
+    req.user = { ...userDetails, token: authToken };
     return next();
   } catch (err) {
     return res.status(err.statusCode).send({
