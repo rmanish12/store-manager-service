@@ -19,4 +19,12 @@ const createUser = async (req, res) => {
     .send(successMessage({ action: "Created", entity: "User" }));
 };
 
-module.exports = { createUser };
+const loginUser = async (req, res) => {
+  const { email, password } = req.body;
+
+  const user = await AuthService.login({ email, password });
+
+  return res.status(StatusCodes.OK).send({ ...user });
+};
+
+module.exports = { createUser, loginUser };

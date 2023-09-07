@@ -22,4 +22,9 @@ const createUser = ({
   return newUser.save();
 };
 
-module.exports = { createUser };
+const loginUser = email =>
+  User.findOne({ email })
+    .select({ _id: 1, email: 1, password: 1, isActive: 1 })
+    .lean();
+
+module.exports = { createUser, loginUser };
